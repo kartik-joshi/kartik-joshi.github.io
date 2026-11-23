@@ -106,6 +106,17 @@
     });
   }
 
+  // Email: assembled at runtime so the address never appears in the page source.
+  var address = ["moc.oohay", "28ihsojkitrak"]
+    .map(function (s) { return s.split("").reverse().join(""); })
+    .reverse().join("@");
+  document.querySelectorAll(".js-email").forEach(function (a) {
+    a.href = "mailto:" + address;
+    if (a.classList.contains("js-email-text")) a.textContent = address;
+  });
+  var emailRow = document.getElementById("contact-email");
+  if (emailRow) emailRow.hidden = false;
+
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 })();
