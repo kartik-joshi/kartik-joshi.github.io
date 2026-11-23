@@ -41,5 +41,23 @@ window.PROJECTS = [
     links: [
       { label: "Source on GitHub", url: "https://github.com/kartik-joshi/local-model-behavior-audit" }
     ]
+  },
+  {
+    title: "sardrone",
+    summary:
+      "A search-and-rescue drone in simulation, built to practise the robotics data loop end to end and measure how much of what a detector learns in simulation survives on real photos. Simulation only so far: on real photos the trained detector does not beat the off-the-shelf model by mAP, though it finds more people at high recall.",
+    results: [
+      "Fine-tuning on simulation alone dropped real-photo accuracy from 0.59 to 0.01 mAP@0.5",
+      "Adding 300 real images restored it to 0.55; randomized worlds, camera realism and 4x more simulated data did not measurably help",
+      "In closed loop, the drone found 39 of 45 people in unseen simulated worlds with no false reports",
+      "A Cohere mission agent passed 17 of 20 missions I wrote, against 9 for a rule-based baseline"
+    ],
+    stack: ["PX4", "Gazebo", "YOLO11", "FiftyOne", "PyTorch", "Cohere"],
+    links: [
+      { label: "Source on GitHub", url: "https://github.com/kartik-joshi/sardrone" },
+      { label: "Technical report", url: "https://github.com/kartik-joshi/sardrone/blob/main/docs/report.md" },
+      { label: "v1.0 release", url: "https://github.com/kartik-joshi/sardrone/releases/tag/v1.0" },
+      { label: "v2 roadmap", url: "https://github.com/kartik-joshi/sardrone/milestone/1" }
+    ]
   }
 ];
