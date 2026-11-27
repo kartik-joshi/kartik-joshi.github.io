@@ -12,6 +12,21 @@
 */
 window.PROJECTS = [
   {
+    title: "prompt-date-drift",
+    summary:
+      "Tests whether the date in the system prompt changes a small local model's answers. Two 3B models answer 200 synthetic date questions with only the stated date changing, and Python scores every answer against ground truth computed from that date.",
+    results: [
+      "Stating a date changed 84.5% of llama3.2:3b's answers and 81.2% of qwen2.5:3b-instruct's, against the no-date baseline",
+      "Accuracy rose from 4% with no date to 18–41% with a date, so most answers are still wrong",
+      "With no date, the models seem to assume it is about 2022–2023",
+      "42 offline tests; flip rates come with 95% paired-bootstrap confidence intervals"
+    ],
+    stack: ["Python", "Ollama", "Statistics", "pytest"],
+    links: [
+      { label: "Source on GitHub", url: "https://github.com/kartik-joshi/prompt-date-drift" }
+    ]
+  },
+  {
     title: "NeighbourBrief TO",
     summary:
       "Turns Toronto Police Service open data into plain-language, multilingual neighbourhood safety bulletins. Code computes every count, a language model only writes the sentences, and nothing is published unless every number in every language matches the data.",
